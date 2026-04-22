@@ -1,0 +1,26 @@
+# Maven
+multilingual-chat-backend/target/
+multilingual-chat-backend/.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.log
+
+# Node/React
+multilingual-chat-frontend/node_modules/
+multilingual-chat-frontend/dist/
+multilingual-chat-frontend/build/
+.env*
+.env
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# OS files
+.DS_Store
+Thumbs.db
