@@ -1,7 +1,9 @@
 import { Client } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 
-const WS_URL = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
+const rawWsUrl = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
+// SockJS requires http/https URLs, not ws/wss
+const WS_URL = rawWsUrl.replace(/^wss:/, 'https:').replace(/^ws:/, 'http:');
 
 let stompClient = null;
 let connectionStatusCallback = null;
