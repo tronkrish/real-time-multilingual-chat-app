@@ -103,7 +103,8 @@ npm start
 
 ## 📸 Screenshots
 
-> ![Uploading image.png…]()
+<img width="1920" height="1031" alt="image" src="https://github.com/user-attachments/assets/c4161889-8f3c-4b9a-a42f-1904638046a1" />
+
 
 
 ---
