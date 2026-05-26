@@ -51,3 +51,73 @@ A full-stack real-time chat application where users can **send messages in their
 ---
 
 ## 🏗️ Architecture Overview
+
+React.js (Frontend)
+│
+│  WebSocket / STOMP
+▼
+Spring Boot (Backend)
+│
+├── Spring Security + JWT  →  Auth Filter
+├── WebSocket Message Broker  →  Real-time relay
+├── Google Translate API  →  Auto translation
+└── MySQL (via Hibernate/JPA)  →  Persistence
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Java 11+
+- Node.js & npm
+- MySQL
+- Maven
+
+### Backend Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/tronkrish/Real-Time-Multilingual-Chat.git
+
+# Navigate to backend
+cd backend
+
+# Configure DB in application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/chatdb
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+
+# Run
+mvn spring-boot:run
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## 📸 Screenshots
+
+> *(Add screenshots of login page, chat room, and translation in action here)*
+
+---
+
+## 👨‍💻 Author
+
+**Sriprasanna C**
+- GitHub: [@tronkrish](https://github.com/tronkrish)
+- LinkedIn: [sriprasanna8585](https://www.linkedin.com/in/sriprasanna8585/)
+- Email: sriprasanna8585@gmail.com
+
+---
+
+<div align="center">
+
+⭐ **If you found this useful, please star the repo!** ⭐
+
+</div>
