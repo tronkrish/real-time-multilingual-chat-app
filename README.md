@@ -103,7 +103,8 @@ npm start
 
 ## 📸 Screenshots
 
-> *(Add screenshots of login page, chat room, and translation in action here)*
+> ![Uploading image.png…]()
+
 
 ---
 
