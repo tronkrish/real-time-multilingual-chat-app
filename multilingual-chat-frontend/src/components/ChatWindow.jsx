@@ -135,7 +135,7 @@ export default function ChatWindow({ selectedUser, messages, setMessages, typing
               const showDateSep = currDate !== prevDate;
 
               return (
-                <div key={index}>
+                <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
                   {showDateSep && (
                     <div className="date-separator">
                       <span>{formatDateSeparator(msg.timestamp)}</span>
