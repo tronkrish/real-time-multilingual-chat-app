@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { userApi, messageApi } from '../api/api';
 import { connectWebSocket, disconnectWebSocket, sendMarkAsRead, setConnectionStatusCallback } from '../utils/websocket';
 import { getLangName, getAvatarGradient } from '../utils/languages';
+import ProfileDrawer from './ProfileDrawer';
 import UserList from './UserList';
 import ChatWindow from './ChatWindow';
 
@@ -18,7 +19,9 @@ export default function ChatLayout() {
   const [typingUsers, setTypingUsers] = useState({}); // { senderId: timeout }
   const [unreadCounts, setUnreadCounts] = useState({}); // { otherId: count }
   const [lastMessages, setLastMessages] = useState({}); // { otherId: message }
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
+  // ... (keep the rest the same until render) ...
   const selectedUserRef = useRef(selectedUser);
   useEffect(() => {
     selectedUserRef.current = selectedUser;
@@ -177,11 +180,26 @@ export default function ChatLayout() {
   return (
     <div className="chat-layout">
       {/* Sidebar */}
-      <div className="sidebar">
+      <div className="sidebar" style={{ position: 'relative', overflow: 'hidden' }}>
+        <ProfileDrawer isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
         <div className="sidebar-header">
-          <h2>💬 MultiChat</h2>
+          <div 
+            className="current-user-profile" 
+            onClick={() => setIsProfileOpen(true)}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}
+            title="Profile"
+          >
+            {user.profilePicture ? (
+              <img src={user.profilePicture} alt="Profile" className="user-avatar" style={{ objectFit: 'cover' }} />
+            ) : (
+              <div className={`user-avatar ${getAvatarGradient(user.userId)}`}>
+                {user.name.charAt(0).toUpperCase()}
+              </div>
+            )}
+            <h2 style={{ fontSize: '1.05rem', margin: 0, padding: 0 }}>{user.name}</h2>
+          </div>
           <div className="header-actions">
-            <span className="user-lang-badge">
+            <span className="user-lang-badge" title="Translation target language">
               {getLangName(user.preferredLanguage)}
             </span>
             <button className="logout-btn" onClick={handleLogout}>

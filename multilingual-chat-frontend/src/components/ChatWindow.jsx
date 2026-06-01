@@ -89,9 +89,13 @@ export default function ChatWindow({ selectedUser, messages, setMessages, typing
     <div className="chat-window">
       {/* Chat Header */}
       <div className="chat-header">
-        <div className={`user-avatar ${avatarGradient}`}>
-          {selectedUser.name.charAt(0).toUpperCase()}
-        </div>
+        {selectedUser.profilePicture ? (
+          <img src={selectedUser.profilePicture} alt="Profile" className="user-avatar" style={{ objectFit: 'cover' }} />
+        ) : (
+          <div className={`user-avatar ${avatarGradient}`}>
+            {selectedUser.name.charAt(0).toUpperCase()}
+          </div>
+        )}
         <div className="chat-user-info">
           <h3>{selectedUser.name}</h3>
           {isTyping ? (

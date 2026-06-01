@@ -41,6 +41,7 @@ export const authApi = {
 
 export const userApi = {
   getAll: () => api.get('/users'),
+  updateProfile: (data) => api.put('/users/profile', data),
 };
 
 export const messageApi = {

@@ -39,6 +39,8 @@ public class AuthService {
                 .name(user.getName())
                 .email(user.getEmail())
                 .preferredLanguage(user.getPreferredLanguage())
+                .about(user.getAbout())
+                .profilePicture(user.getProfilePicture())
                 .build();
     }
 
@@ -58,6 +60,8 @@ public class AuthService {
                 .name(user.getName())
                 .email(user.getEmail())
                 .preferredLanguage(user.getPreferredLanguage())
+                .about(user.getAbout())
+                .profilePicture(user.getProfilePicture())
                 .build();
     }
 }

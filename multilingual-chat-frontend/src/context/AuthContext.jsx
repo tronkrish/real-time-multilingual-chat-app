@@ -25,6 +25,8 @@ export function AuthProvider({ children }) {
       name: authResponse.name,
       email: authResponse.email,
       preferredLanguage: authResponse.preferredLanguage,
+      about: authResponse.about,
+      profilePicture: authResponse.profilePicture,
     }));
     setToken(authResponse.token);
     setUser({
@@ -32,7 +34,15 @@ export function AuthProvider({ children }) {
       name: authResponse.name,
       email: authResponse.email,
       preferredLanguage: authResponse.preferredLanguage,
+      about: authResponse.about,
+      profilePicture: authResponse.profilePicture,
     });
+  };
+
+  const updateUser = (updatedData) => {
+    const newUser = { ...user, ...updatedData };
+    setUser(newUser);
+    localStorage.setItem('user', JSON.stringify(newUser));
   };
 
   const logout = () => {
@@ -43,7 +53,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

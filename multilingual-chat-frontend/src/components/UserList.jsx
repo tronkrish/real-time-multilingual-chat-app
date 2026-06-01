@@ -66,9 +66,13 @@ export default function UserList({
               className={`user-item ${selectedUser?.id === u.id ? 'active' : ''}`}
               onClick={() => onSelectUser(u)}
             >
-              <div className={`user-avatar ${avatarGradient}`}>
-                {u.name.charAt(0).toUpperCase()}
-              </div>
+              {u.profilePicture ? (
+                <img src={u.profilePicture} alt={u.name} className="user-avatar" style={{ objectFit: 'cover' }} />
+              ) : (
+                <div className={`user-avatar ${avatarGradient}`}>
+                  {u.name.charAt(0).toUpperCase()}
+                </div>
+              )}
               <div className="user-details">
                 <div className="user-details-top">
                   <div className="name">{u.name}</div>

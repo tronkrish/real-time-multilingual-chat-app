@@ -28,6 +28,13 @@ public class User {
     @Column(name = "preferred_language", nullable = false)
     private String preferredLanguage;
 
+    @Column(name = "about", length = 255)
+    private String about = "Hey there! I am using MultiChat.";
+
+    @Lob
+    @Column(name = "profile_picture", columnDefinition = "LONGTEXT")
+    private String profilePicture;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

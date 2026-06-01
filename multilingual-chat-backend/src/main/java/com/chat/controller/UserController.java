@@ -32,9 +32,44 @@ public class UserController {
                         .name(u.getName())
                         .email(u.getEmail())
                         .preferredLanguage(u.getPreferredLanguage())
+                        .about(u.getAbout())
+                        .profilePicture(u.getProfilePicture())
                         .build())
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(users);
+    }
+
+    @PutMapping("/profile")
+    public ResponseEntity<UserDTO> updateProfile(
+            @RequestHeader("Authorization") String authHeader,
+            @RequestBody com.chat.dto.UserUpdateDto request) {
+        
+        String token = authHeader.substring(7);
+        Long currentUserId = jwtUtil.getUserIdFromToken(token);
+
+        com.chat.model.User user = userRepository.findById(currentUserId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (request.getName() != null && !request.getName().trim().isEmpty()) {
+            user.setName(request.getName().trim());
+        }
+        if (request.getAbout() != null) {
+            user.setAbout(request.getAbout().trim());
+        }
+        if (request.getProfilePicture() != null) {
+            user.setProfilePicture(request.getProfilePicture());
+        }
+
+        user = userRepository.save(user);
+
+        return ResponseEntity.ok(UserDTO.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .preferredLanguage(user.getPreferredLanguage())
+                .about(user.getAbout())
+                .profilePicture(user.getProfilePicture())
+                .build());
     }
 }
