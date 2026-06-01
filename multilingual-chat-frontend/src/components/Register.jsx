@@ -4,31 +4,20 @@ import { authApi } from '../api/api';
 import { useAuth } from '../context/AuthContext';
 
 const LANGUAGES = [
-  // Indian Languages
-  { code: 'en', name: 'English' },
-  { code: 'hi', name: 'Hindi (हिन्दी)' },
-  { code: 'ta', name: 'Tamil (தமிழ்)' },
-  { code: 'te', name: 'Telugu (తెలుగు)' },
-  { code: 'ml', name: 'Malayalam (മലയാളം)' },
-  { code: 'kn', name: 'Kannada (ಕನ್ನಡ)' },
-  { code: 'mr', name: 'Marathi (मराठी)' },
-  { code: 'gu', name: 'Gujarati (ગુજરાતી)' },
-  { code: 'bn', name: 'Bengali (বাংলা)' },
-  { code: 'pa', name: 'Punjabi (ਪੰਜਾਬੀ)' },
-  { code: 'or', name: 'Odia (ଓଡ଼ିଆ)' },
-  { code: 'as', name: 'Assamese (অসমীয়া)' },
-  { code: 'ur', name: 'Urdu (اردو)' },
-  { code: 'sa', name: 'Sanskrit (संस्कृतम्)' },
-  { code: 'ne', name: 'Nepali (नेपाली)' },
-  { code: 'si', name: 'Sinhala (සිංහල)' },
-  // International Languages
-  { code: 'fr', name: 'French' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'de', name: 'German' },
-  { code: 'zh', name: 'Chinese' },
-  { code: 'ja', name: 'Japanese' },
-  { code: 'ko', name: 'Korean' },
-  { code: 'ar', name: 'Arabic' },
+  { code: 'en', name: '🇮🇳 English' },
+  { code: 'hi', name: '🇮🇳 Hindi (हिन्दी)' },
+  { code: 'ta', name: '🇮🇳 Tamil (தமிழ்)' },
+  { code: 'te', name: '🇮🇳 Telugu (తెలుగు)' },
+  { code: 'ml', name: '🇮🇳 Malayalam (മലയാളം)' },
+  { code: 'kn', name: '🇮🇳 Kannada (ಕನ್ನಡ)' },
+  { code: 'mr', name: '🇮🇳 Marathi (मराठी)' },
+  { code: 'gu', name: '🇮🇳 Gujarati (ગુજરાતી)' },
+  { code: 'bn', name: '🇮🇳 Bengali (বাংলা)' },
+  { code: 'pa', name: '🇮🇳 Punjabi (ਪੰਜਾਬੀ)' },
+  { code: 'or', name: '🇮🇳 Odia (ଓଡ଼ିଆ)' },
+  { code: 'as', name: '🇮🇳 Assamese (অসমীয়া)' },
+  { code: 'ur', name: '🇮🇳 Urdu (اردو)' },
+  { code: 'ne', name: '🇮🇳 Nepali (नेपाली)' },
 ];
 
 export default function Register() {
