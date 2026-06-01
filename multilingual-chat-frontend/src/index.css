@@ -249,6 +249,30 @@ body {
   box-shadow: 0 0 0 2px rgba(0, 168, 132, 0.12);
 }
 
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: var(--transition);
+}
+
+.password-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
 .form-group input::placeholder {
   color: var(--text-muted);
 }

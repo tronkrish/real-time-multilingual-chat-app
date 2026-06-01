@@ -24,6 +24,7 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [preferredLanguage, setPreferredLanguage] = useState('en');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -84,15 +85,25 @@ export default function Register() {
 
           <div className="form-group">
             <label htmlFor="reg-password">Password</label>
-            <input
-              id="reg-password"
-              type="password"
-              placeholder="Create a strong password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={6}
-            />
+            <div className="password-input-wrapper">
+              <input
+                id="reg-password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Create a strong password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
+              />
+              <button
+                type="button"
+                className="password-toggle-btn"
+                onClick={() => setShowPassword(!showPassword)}
+                title={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? '👁️‍🗨️' : '👁️'}
+              </button>
+            </div>
           </div>
 
           <div className="form-group">
